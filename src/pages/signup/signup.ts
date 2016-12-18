@@ -1,8 +1,5 @@
-import { 
-  NavController, 
-  LoadingController, 
-  AlertController } from 'ionic-angular';
 import { Component } from '@angular/core';
+import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
 import { EmailValidator } from '../../validators/email';
@@ -19,9 +16,9 @@ export class SignupPage {
   submitAttempt: boolean = false;
   loading;
 
-
-  constructor(public nav: NavController, public authData: AuthData, public formBuilder: FormBuilder,
-    public loadingCtrl: LoadingController, public alertCtrl: AlertController) {
+  constructor(public nav: NavController, public authData: AuthData, 
+    public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
+    public alertCtrl: AlertController) {
 
     this.signupForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
@@ -49,7 +46,8 @@ export class SignupPage {
     if (!this.signupForm.valid){
       console.log(this.signupForm.value);
     } else {
-      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password).then(() => {
+      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
+      .then(() => {
         this.nav.setRoot(HomePage);
       }, (error) => {
         this.loading.dismiss().then( () => {

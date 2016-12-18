@@ -2,20 +2,21 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-// Importing pages
+// Importing Pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { ResetPasswordPage } from '../pages/reset-password/reset-password';
 import { SignupPage } from '../pages/signup/signup';
 
-// Importing provider
+// Importing Providers
 import { AuthData } from '../providers/auth-data';
 
-// Import the AF2 Module
+// Importing AF2 Module
+
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 // AF2 Settings
-export const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyALKfevapBOYK202f6k5mPPfMrT1MHDv5A",
     authDomain: "bill-tracker-e5746.firebaseapp.com",
     databaseURL: "https://bill-tracker-e5746.firebaseio.com",
@@ -27,6 +28,7 @@ const myFirebaseAuthConfig = {
   provider: AuthProviders.Password,
   method: AuthMethods.Password
 }
+
 
 @NgModule({
   declarations: [

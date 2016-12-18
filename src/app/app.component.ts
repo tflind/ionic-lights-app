@@ -9,10 +9,10 @@ import { AngularFire } from 'angularfire2';
 
 
 @Component({
-  template: `<ion-nav [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any;
+  rootPage;
 
   constructor(platform: Platform, af: AngularFire) {
     af.auth.subscribe( user => {
@@ -22,7 +22,7 @@ export class MyApp {
         this.rootPage = LoginPage;
       }
     });
-    
+
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
