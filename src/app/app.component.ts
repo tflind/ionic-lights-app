@@ -12,14 +12,16 @@ import { AngularFire } from 'angularfire2';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage;
+  rootPage: any;
 
   constructor(platform: Platform, af: AngularFire) {
-    af.auth.subscribe( user => {
+    const authObserver = af.auth.subscribe( user => {
       if (user) {
         this.rootPage = HomePage;
+        authObserver.unsubscribe();
       } else {
         this.rootPage = LoginPage;
+        authObserver.unsubscribe();
       }
     });
 
