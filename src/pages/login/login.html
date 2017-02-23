@@ -14,10 +14,10 @@
       <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)"
         placeholder="Your email address"
         [class.invalid]="!loginForm.controls.email.valid &&
-          (emailChanged || submitAttempt)"></ion-input>
+          loginForm.controls.email.dirty"></ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  &&
-      (emailChanged || submitAttempt)">
+      loginForm.controls.email.dirty">
       <p>Please enter a valid email.</p>
     </ion-item>
 
@@ -27,10 +27,10 @@
         (change)="elementChanged(password)"
         placeholder="Your password"
         [class.invalid]="!loginForm.controls.password.valid &&
-          (passwordChanged || submitAttempt)"></ion-input>
+          loginForm.controls.password.dirty"></ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  &&
-      (passwordChanged || submitAttempt)">
+      loginForm.controls.password.dirty">
       <p>Your password needs more than 6 characters.</p>
     </ion-item>
 

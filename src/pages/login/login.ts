@@ -14,9 +14,6 @@ import { EmailValidator } from '../../validators/email';
 export class LoginPage {
 
   public loginForm: any;
-  emailChanged: boolean = false;
-  passwordChanged: boolean = false;
-  submitAttempt: boolean = false;
   public loading: any;
 
   constructor(public navCtrl: NavController, public authData: AuthData, 
@@ -29,14 +26,7 @@ export class LoginPage {
       });
     }
 
-    elementChanged(input){
-      let field = input.inputControl.name;
-      this[field + "Changed"] = true;
-    }
-
     loginUser(){
-      this.submitAttempt = true;
-      
       if (!this.loginForm.valid){
         console.log(this.loginForm.value);
       } else {

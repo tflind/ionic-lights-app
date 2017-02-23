@@ -14,22 +14,22 @@ export class AuthData {
     });
   }
 
-  loginUser(newEmail: string, newPassword: string): any {
+  loginUser(newEmail: string, newPassword: string): firebase.Promise<any> {
     return this.af.auth.login({
       email: newEmail,
       password: newPassword
     });
   }
 
-  resetPassword(email: string): any {
+  resetPassword(email: string): firebase.Promise<any> {
     return firebase.auth().sendPasswordResetEmail(email);
   }
 
-  logoutUser(): any {
-    this.af.auth.logout();
+  logoutUser(): firebase.Promise<any> {
+    return this.af.auth.logout();
   }
 
-  signupUser(newEmail: string, newPassword: string): any {
+  signupUser(newEmail: string, newPassword: string): firebase.Promise<any> {
     return this.af.auth.createUser({ 
       email: newEmail, 
       password: newPassword 
