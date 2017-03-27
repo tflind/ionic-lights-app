@@ -10,6 +10,8 @@ import { SignupPage } from '../pages/signup/signup';
 
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 // Importing AF2 Module
 
@@ -52,7 +54,9 @@ const myFirebaseAuthConfig = {
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData
+    AuthData,
+    SplashScreen,
+    StatusBar
   ]
 })
 export class AppModule {}

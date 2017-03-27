@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
-import { Splashscreen } from '@ionic-native/splashscreen';
-import { StatusBar } from '@ionic-native/statusbar';
+
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -15,7 +16,8 @@ import { AngularFire } from 'angularfire2';
 export class MyApp {
   rootPage: any;
 
-  constructor(platform: Platform, af: AngularFire) {
+  constructor(platform: Platform, af: AngularFire, private splashScreen: SplashScreen, 
+    private statusBar: StatusBar) {
     const authObserver = af.auth.subscribe( user => {
       if (user) {
         this.rootPage = HomePage;
@@ -29,8 +31,8 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+      statusBar.styleDefault();
+      splashScreen.hide();
     });
   }
 }
