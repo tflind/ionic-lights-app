@@ -2,11 +2,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-// Importing Pages
-import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-import { ResetPasswordPage } from '../pages/reset-password/reset-password';
-import { SignupPage } from '../pages/signup/signup';
 
 // Importing Providers
 import { AuthData } from '../providers/auth-data';
@@ -15,7 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 // Importing AF2 Module
 
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 // AF2 Settings
 const firebaseConfig = {
@@ -26,31 +23,19 @@ const firebaseConfig = {
     messagingSenderId: "508248799540"
 };
 
-const myFirebaseAuthConfig = {
-  provider: AuthProviders.Password,
-  method: AuthMethods.Password
-}
-
-
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    ResetPasswordPage,
-    SignupPage
+    MyApp
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    LoginPage,
-    ResetPasswordPage,
-    SignupPage
+    MyApp
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

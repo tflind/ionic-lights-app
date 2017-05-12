@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 
-import { AngularFire } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @Component({
@@ -16,9 +16,9 @@ import { AngularFire } from 'angularfire2';
 export class MyApp {
   rootPage: any;
 
-  constructor(platform: Platform, af: AngularFire, private splashScreen: SplashScreen, 
+  constructor(platform: Platform, afAuth: AngularFireAuth, private splashScreen: SplashScreen, 
     private statusBar: StatusBar) {
-    const authObserver = af.auth.subscribe( user => {
+    const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
         this.rootPage = HomePage;
         authObserver.unsubscribe();
