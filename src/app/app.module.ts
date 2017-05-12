@@ -4,10 +4,10 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 
-// Importing Providers
-import { AuthData } from '../providers/auth-data';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { AuthProvider } from '../providers/auth/auth';
+import { HomePage } from '../pages/home/home';
 
 // Importing AF2 Module
 
@@ -26,7 +26,8 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    HomePage
   ],
   imports: [
     BrowserModule,
@@ -37,13 +38,14 @@ const firebaseConfig = {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    HomePage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthData,
     SplashScreen,
-    StatusBar
+    StatusBar, 
+    AuthProvider
   ]
 })
 export class AppModule {}

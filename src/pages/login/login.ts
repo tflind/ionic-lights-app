@@ -6,7 +6,7 @@ import {
   Loading, 
   AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthData } from '../../providers/auth-data';
+import { AuthProvider } from '../../providers/auth/auth';
 import { EmailValidator } from '../../validators/email';
 
 @IonicPage()
@@ -19,7 +19,7 @@ export class LoginPage {
   public loginForm:FormGroup;
   public loading:Loading;
 
-  constructor(public navCtrl: NavController, public authData: AuthData, 
+  constructor(public navCtrl: NavController, public authData: AuthProvider, 
     public formBuilder: FormBuilder, public alertCtrl: AlertController,
     public loadingCtrl: LoadingController) {
 
