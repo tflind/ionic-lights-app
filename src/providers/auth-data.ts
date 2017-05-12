@@ -1,39 +1,33 @@
 import { Injectable } from '@angular/core';
 
-import { AngularFire } from 'angularfire2';
-import firebase from 'firebase';
+import { AngularFireAuth } from 'angularfire2/auth';
+import firebase from 'firebase/app';
 
 @Injectable()
 export class AuthData {
 
   fireAuth: any;
 
-  constructor(public af: AngularFire) {
-    af.auth.subscribe( user => {
-      if (user) { this.fireAuth = user.auth; }
+  constructor(public afAuth: AngularFireAuth) {
+    afAuth.authState.subscribe( user => {
+      if (user) { this.fireAuth = user; }
     });
   }
 
   loginUser(newEmail: string, newPassword: string): firebase.Promise<any> {
-    return this.af.auth.login({
-      email: newEmail,
-      password: newPassword
-    });
+    return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
   }
 
   resetPassword(email: string): firebase.Promise<any> {
-    return firebase.auth().sendPasswordResetEmail(email);
+    return this.afAuth.auth.sendPasswordResetEmail(email);
   }
 
   logoutUser(): firebase.Promise<any> {
-    return this.af.auth.logout();
+    return this.afAuth.auth.signOut();
   }
 
   signupUser(newEmail: string, newPassword: string): firebase.Promise<any> {
-    return this.af.auth.createUser({ 
-      email: newEmail, 
-      password: newPassword 
-    });
+    return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
   }
 
 }
