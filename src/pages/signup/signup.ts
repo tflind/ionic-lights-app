@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
-import { FormBuilder, Validators } from '@angular/forms';
+import { 
+  IonicPage, 
+  NavController, 
+  LoadingController, 
+  Loading, 
+  AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthData } from '../../providers/auth-data';
 import { EmailValidator } from '../../validators/email';
-import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -11,8 +15,8 @@ import { HomePage } from '../home/home';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-  public signupForm;
-  loading;
+  public signupForm:FormGroup;
+  public loading:Loading;
 
   constructor(public nav: NavController, public authData: AuthData, 
     public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
@@ -36,7 +40,7 @@ export class SignupPage {
     } else {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
       .then(() => {
-        this.nav.setRoot(HomePage);
+        this.nav.setRoot('HomePage');
       }, (error) => {
         this.loading.dismiss().then( () => {
           var errorMessage: string = error.message;
