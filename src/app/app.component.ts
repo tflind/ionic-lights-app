@@ -4,9 +4,6 @@ import { Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
-import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
-
 import { AngularFireAuth } from 'angularfire2/auth';
 
 
@@ -14,16 +11,16 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any;
+  rootPage:string;
 
   constructor(platform: Platform, afAuth: AngularFireAuth, private splashScreen: SplashScreen, 
     private statusBar: StatusBar) {
     const authObserver = afAuth.authState.subscribe( user => {
       if (user) {
-        this.rootPage = HomePage;
+        this.rootPage = 'HomePage';
         authObserver.unsubscribe();
       } else {
-        this.rootPage = LoginPage;
+        this.rootPage = 'LoginPage';
         authObserver.unsubscribe();
       }
     });
