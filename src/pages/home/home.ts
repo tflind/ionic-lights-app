@@ -8,9 +8,12 @@ import { AddCustomerPage } from '../add-customer/add-customer';
   templateUrl: 'home.html'
 })
 export class HomePage {
-    addCustomerPage = AddCustomerPage;
-  constructor(public navCtrl: NavController) {
-    
+  
+  constructor(public navCtrl: NavController) {}
+  goToAddCustomer(){
+    this.navCtrl.push(AddCustomerPage);
+  
   }
+  
 
 }

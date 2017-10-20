@@ -8,6 +8,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AuthProvider } from '../providers/auth/auth';
 import { HomePage } from '../pages/home/home';
+import { AddCustomerPage } from '../pages/add-customer/add-customer';
+
 
 // Importing AF2 Module
 
@@ -27,7 +29,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AddCustomerPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ const firebaseConfig = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddCustomerPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},
