@@ -8,12 +8,11 @@
 
 <ion-content>
 
- <ion-searchbar></ion-searchbar>
-
-
+ <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+ 
  <button ion-button full (click)="goToAddCustomer();">Add New Customer</button>
 
- <ion-item *ngFor="let profile of profileList">
+<ion-item *ngFor="let profile of profileList">
   <h2> {{ profile.firstName }} </h2>
   
  </ion-item>
