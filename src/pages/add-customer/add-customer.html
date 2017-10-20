@@ -13,27 +13,29 @@
 <ion-list>
   <ion-item>
     <ion-label color="primary" stacked>First Name:</ion-label>
-    <ion-input placeholder="Input First Name"></ion-input>
+    <ion-input [(ngModel)]="firstName" placeholder="Input First Name"></ion-input>
   </ion-item>
    <ion-item>
     <ion-label color="primary" stacked>Last Name:</ion-label>
-    <ion-input placeholder="Input Last Name"></ion-input>
+    <ion-input [(ngModel)]="lastName" placeholder="Input Last Name"></ion-input>
   </ion-item>
    <ion-item>
     <ion-label color="primary" stacked>Address:</ion-label>
-    <ion-input placeholder="Input Address"></ion-input>
+    <ion-input [(ngModel)]="address" placeholder="Input Address"></ion-input>
   </ion-item>
    <ion-item>
     <ion-label color="primary" stacked>Phone:</ion-label>
-    <ion-input type="tel" placeholder="Input Phone Number"></ion-input>
+    <ion-input [(ngModel)]="phone" type="tel" placeholder="Input Phone Number"></ion-input>
   </ion-item>
    <ion-item>
     <ion-label color="primary" stacked>Email:</ion-label>
-    <ion-input type="email" placeholder="Input Email Address"></ion-input>
+    <ion-input [(ngModel)]="email" type="email" placeholder="Input Email Address"></ion-input>
   </ion-item>
 </ion-list>  
 
-<button ion-button full>Create Customer</button>
+
+
+<button ion-button full (click)="createPerson(firstName, lastName, address, phone, email)">Create Customer</button>
 
 </ion-content>
 

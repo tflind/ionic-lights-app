@@ -10,8 +10,12 @@
 
  <ion-searchbar></ion-searchbar>
 
+
  <button ion-button full (click)="goToAddCustomer();">Add New Customer</button>
 
-
+ <ion-item *ngFor="let profile of profileList">
+  <h2> {{ profile.firstName }} </h2>
+  
+ </ion-item>
 
 </ion-content>
