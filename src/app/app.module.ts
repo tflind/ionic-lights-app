@@ -16,11 +16,12 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // AF2 Settings
 const firebaseConfig = {
-  apiKey: "AIzaSyALKfevapBOYK202f6k5mPPfMrT1MHDv5A",
-    authDomain: "bill-tracker-e5746.firebaseapp.com",
-    databaseURL: "https://bill-tracker-e5746.firebaseio.com",
-    storageBucket: "bill-tracker-e5746.appspot.com",
-    messagingSenderId: "508248799540"
+    apiKey: "AIzaSyCQBitFrH9owBYS47f7HFnH_Abqc2RdLzc",
+    authDomain: "firehouselights.firebaseapp.com",
+    databaseURL: "https://firehouselights.firebaseio.com",
+    projectId: "firehouselights",
+    storageBucket: "firehouselights.appspot.com",
+    messagingSenderId: "159000822923"
 };
 
 @NgModule({
