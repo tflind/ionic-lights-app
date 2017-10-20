@@ -15,9 +15,9 @@ export class AddCustomerPage {
 
   createPerson(firstName: string, lastName: string, address: string, phone: number, email: string ): void {
     console.log(firstName, lastName, address, phone, email);
-    const personRef: firebase.database.Reference = firebase.database().ref(`/person1/`);
-    personRef.set({ 
-      profile: {
+    const personRef: firebase.database.Reference = firebase.database().ref(`/profiles/`);
+    personRef.update({ 
+      [Date.now()]: {
         firstName, 
         lastName,
         address,

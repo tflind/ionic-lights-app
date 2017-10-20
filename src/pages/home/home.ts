@@ -13,7 +13,7 @@ export class HomePage {
   public profileRef:firebase.database.Reference;
 
   constructor(public navCtrl: NavController) {
-    this.profileRef = firebase.database().ref('/person1');
+    this.profileRef = firebase.database().ref('/profiles');
 
     this.profileRef.on('value', profileList => {
       let profiles = [];
