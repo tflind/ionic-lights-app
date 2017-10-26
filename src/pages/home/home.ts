@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 import { AddCustomerPage } from '../add-customer/add-customer';
+import { CustomerPage } from '../customer/customer';
 import firebase from 'firebase';
 
 @Component({
@@ -56,6 +57,10 @@ export class HomePage {
 
   goToAddCustomer(){
     this.navCtrl.push(AddCustomerPage);
+  }
+
+   goToCustomer($event, profile){
+    this.navCtrl.push(CustomerPage);
   }
 
    ionViewDidLoad() {

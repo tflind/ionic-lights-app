@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { AuthProvider } from '../providers/auth/auth';
 import { HomePage } from '../pages/home/home';
 import { AddCustomerPage } from '../pages/add-customer/add-customer';
+import { CustomerPage } from '../pages/customer/customer';
 
 
 // Importing AF2 Module
@@ -30,7 +31,8 @@ const firebaseConfig = {
   declarations: [
     MyApp,
     HomePage,
-    AddCustomerPage
+    AddCustomerPage,
+    CustomerPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ const firebaseConfig = {
   entryComponents: [
     MyApp,
     HomePage,
-    AddCustomerPage
+    AddCustomerPage,
+    CustomerPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

@@ -32,7 +32,7 @@ export class AddCustomerPage {
   ionViewDidLoad() {
     const personRef: firebase.database.Reference = firebase.database().ref(`/person1/`);
     personRef.on('value', personSnapshot => {
-    //  console.log(myPerson);
+    console.log(this.myPerson);
     this.myPerson = personSnapshot.val();
     }); 
     console.log('ionViewDidLoad AddCustomerPage');

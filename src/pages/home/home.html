@@ -12,8 +12,9 @@
  
  <button ion-button full (click)="goToAddCustomer();">Add New Customer</button>
 
-<ion-item *ngFor="let profile of profileList">
-  <h2> {{ profile.firstName }} </h2>
+ <ion-item *ngFor="let profile of profileList" (click)="goToCustomer($event, profile);">
+  
+  <h2> {{ profile.firstName }} {{ profile.lastName}}</h2>
   
  </ion-item>
 
